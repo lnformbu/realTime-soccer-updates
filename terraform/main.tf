@@ -8,13 +8,13 @@ resource "aws_sns_topic" "soccer_topic" {
 resource "aws_sns_topic_subscription" "email_subscription" {
   topic_arn = aws_sns_topic.soccer_topic.arn
   protocol  = "email"
-  endpoint  = "lenonnformbui@gmail.com" #"your-email@example.com" # Replace with your email
+  endpoint  = "your-email@example.com" # Replace with your email
 }
 
 resource "aws_sns_topic_subscription" "sms_subscription" {
   topic_arn = aws_sns_topic.soccer_topic.arn
   protocol  = "sms"
-  endpoint  = "+12407791158" #"+1234567890" # Replace with your phone number
+  endpoint  = "+1234567890" # Replace with your phone number
 }
 
 
@@ -35,7 +35,7 @@ resource "aws_iam_policy" "sns_publish_policy" {
 
 # IAM Role for Lambda
 resource "aws_iam_role" "soccer_role" {
-  name               = "soccer_role"
+  name = "soccer_role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -65,25 +65,27 @@ resource "aws_iam_role_policy_attachment" "attach_lambda_basic_execution" {
 # Lambda Function
 resource "aws_lambda_function" "soccer_notifications" {
   function_name = "soccer_notifications"
+  description   = "Makes API Calls to sportsdata.io for EPL & EPL Soccer games"
   role          = aws_iam_role.soccer_role.arn
   runtime       = "python3.9"
   handler       = "lambda_function.lambda_handler"
   environment {
     variables = {
-      SOCCER_API_KEY    = var.soccer_api_key #"your-soccer-api-key" # Replace with your actual SOCCER API key
+      SOCCER_API_KEY = var.soccer_api_key #"your-soccer-api-key" # Replace with your actual SOCCER API key
       SNS_TOPIC_ARN  = aws_sns_topic.soccer_topic.arn
-      COMPETITIONS     = "EPL,MLS" 
+      COMPETITIONS   = "EPL"
     }
   }
-  
-  filename         = "soccer_notifications.zip" # Provide the path to your zipped Lambda code
+
+
+  filename         = "lambda_function.zip"
   source_code_hash = data.archive_file.lambda.output_base64sha256
 }
 
 # EventBridge Rule for Scheduling
 resource "aws_cloudwatch_event_rule" "schedule_rule" {
-  name        = "soccer_event_rule"
-  schedule_expression = "rate(1 hour)" # Change the schedule as needed
+  name                = "soccer_event_rule"
+  schedule_expression = "rate(5 minutes)" # Change the schedule as needed
 }
 
 # EventBridge Target

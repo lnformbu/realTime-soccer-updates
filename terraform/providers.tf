@@ -5,17 +5,24 @@ terraform {
       source  = "hashicorp/aws"
       version = ">= 4.66, < 5.67.0"
     }
-  }
-  cloud {
-    organization = "AWS-100DaysofDevOps"
-    workspaces {
-      name = "100DaysDevOps"
+    archive = {
+      source  = "hashicorp/archive"
+      version = "2.7.0"
     }
   }
+  # uncomment to use terraform cloud as backend
+
+  # cloud {
+  #   organization = ""
+  #   workspaces {
+  #     name = ""
+  #   }
+  # }
+
 }
 
 
 
 provider "aws" {
-    region = "us-east-1" # Change this to your preferred AWS region
+  region = "us-east-1" # Change this to your preferred AWS region
 }
