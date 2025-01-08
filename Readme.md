@@ -35,25 +35,26 @@ This project focuses on building an alert system that delivers real-time **EPL &
 
 ## **Project Structure**
 
-### Requirements
+## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
+| <a name="requirement_archive"></a> [archive](#requirement\_archive) | 2.7.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.66, < 5.67.0 |
 
-### Providers
+## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_archive"></a> [archive](#provider\_archive) | 2.7.0 |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 5.66.0 |
 
-### Modules
+## Modules
 
 No modules.
 
-### Resources
+## Resources
 
 | Name | Type |
 |------|------|
@@ -68,16 +69,16 @@ No modules.
 | [aws_sns_topic.soccer_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
 | [aws_sns_topic_subscription.email_subscription](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
 | [aws_sns_topic_subscription.sms_subscription](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
-| [archive_file.lambda](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) | data source |
+| [archive_file.lambda](https://registry.terraform.io/providers/hashicorp/archive/2.7.0/docs/data-sources/file) | data source |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 
-### Inputs
+## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_soccer_api_key"></a> [soccer\_api\_key](#input\_soccer\_api\_key) | actual SOCCER API key | `string` | `""` | no |
 
-### Outputs
+## Outputs
 
 | Name | Description |
 |------|-------------|
@@ -90,6 +91,7 @@ No modules.
 | <a name="output_sns_publish_policy_arn"></a> [sns\_publish\_policy\_arn](#output\_sns\_publish\_policy\_arn) | ARN of the SNS Publish Policy |
 | <a name="output_sns_sms_subscription"></a> [sns\_sms\_subscription](#output\_sns\_sms\_subscription) | ARN of the SMS subscription to the SNS Topic |
 | <a name="output_sns_topic_arn"></a> [sns\_topic\_arn](#output\_sns\_topic\_arn) | ARN of the SNS Topic |
+
 
 
 # **Next Steps to Set Up and Run the Project**

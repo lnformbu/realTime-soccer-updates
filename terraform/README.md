@@ -1,13 +1,9 @@
-## **Technical Architecture**
-![Technical-Architecture](img/arc.png)
-
----
-
-# Requirements
+## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.7.0 |
+| <a name="requirement_archive"></a> [archive](#requirement\_archive) | 2.7.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.66, < 5.67.0 |
 
 ## Providers
@@ -36,7 +32,7 @@ No modules.
 | [aws_sns_topic.soccer_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
 | [aws_sns_topic_subscription.email_subscription](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
 | [aws_sns_topic_subscription.sms_subscription](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription) | resource |
-| [archive_file.lambda](https://registry.terraform.io/providers/hashicorp/archive/latest/docs/data-sources/file) | data source |
+| [archive_file.lambda](https://registry.terraform.io/providers/hashicorp/archive/2.7.0/docs/data-sources/file) | data source |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 
 ## Inputs
