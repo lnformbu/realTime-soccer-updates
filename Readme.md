@@ -1,7 +1,8 @@
 # Soccer Game Day Notifications / Sports Alerts System
 
 ## **Project Overview**
-This project is an alert system that sends real-time soccer game day score notifications to subscribed users via SMS/Email. It leverages **Amazon SNS**, **AWS Lambda and Python**, **Amazon EventBridge**, and **soccer APIs** to provide sports fans with up-to-date game information. The project demonstrates cloud computing principles and efficient notification mechanisms.
+
+This project focuses on building an alert system that delivers real-time **EPL & MLS** soccer game day score notifications to users through SMS and email. It utilizes key AWS services such as **Amazon SNS** for messaging, **AWS Lambda** for serverless computation using **Python**, and **Amazon EventBridge** for event-driven architecture. Additionally, it integrates **soccer APIs** to fetch live game data, ensuring sports enthusiasts stay updated on the latest match information. This project highlights practical cloud computing concepts and implements efficient notification workflows.
 
 ---
 
@@ -18,7 +19,7 @@ This project is an alert system that sends real-time soccer game day score notif
 ---
 
 ## **Technical Architecture**
-![soccer_API](https://github.com/user-attachments/assets/soccer-system-diagram)
+![Technical-Architecture](img/arc.png)
 
 ---
 
